@@ -6,14 +6,18 @@
 #define all(X) X.begin(), X.end()
 #define pb push_back
 #define present(a, x) (a.find(x)!=a.end())
-typedef vector < int > a;
+
+
+void solve() {
+    
+}
 
 using namespace std;
 int main(){
     int t;
     cin >> t;
     while(t--){
-           
+        solve();   
     }
     return 0;
 }

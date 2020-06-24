@@ -21,7 +21,7 @@ done
 echo Comparing solutions
 echo $(pwd)
 outputFiles=(`ls output*.txt`)
-
+inputFiles=(`ls input*.txt`)
 youroutputFiles=(`ls youroutput*.txt`)
 
 echo ${outputFiles[@]} ${youroutputFiles[@]}
@@ -32,6 +32,8 @@ echo
 for((i=0; i<$numberOfIOs; i++)) do
   echo TestCase $i
   echo ---------------
+  echo Input
+  cat ${inputFiles[i]} && echo && echo
   echo Expected Output
   cat ${outputFiles[i]} && echo && echo
   echo Your Output

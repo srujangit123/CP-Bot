@@ -18,7 +18,8 @@ If the contest name is 1366
 ```
 PWD(Present working directory)
 │   app.py
-│   check.sh    
+│   check.sh
+|   bot.py
 │
 └───1366(subfolder)
     │

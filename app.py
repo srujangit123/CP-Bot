@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import re
 import os
 
+contestName = input("contest number: ")
 
 def problemsURLs(contestName):
     contestURL = "https://codeforces.com/contest/" + contestName
@@ -24,7 +25,9 @@ def problemsURLs(contestName):
 def makeSolutionFiles(fileNames, template):
     for i in fileNames:
         try:
-            fp = open(i + ".cpp", "w")
+            os.mkdir("./" + contestName + "/" + i)
+            fp = open(contestName + "/" + i + "/sol.cpp", "w")
+            # fp = open(contestName + "/" + i + ".cpp", "w")
             fp.write(template)
         except:
             print(i, " already exists")
@@ -47,17 +50,26 @@ def createIOfiles(problemListsURL):
         IOSoup = BeautifulSoup(problemPage, "html.parser")
 
         io = IOSoup.find_all("pre")
-        inputText = io[0].get_text()
-        outputText = io[1].get_text()
+
+
+        numberOfIOs = len(io)
+
         words = problem.split("/")
-        Ifile = open(words[len(words) - 1] + "input.txt", "w")
-        Ifile.write(inputText)
-        Ofile = open(words[len(words) - 1] + "output.txt", "w")
-        Ofile.write(outputText)
+        problemCode = words[len(words) - 1]
+
+        for i in range(numberOfIOs//2):
+            inputText = io[i].get_text()
+            outputText = io[i + 1].get_text()
+            Ifile = open(contestName + "/" + contestName + problemCode + "/input" + str(i) + ".txt", "w")
+            Ifile.write(inputText)
+            Ofile = open(contestName + "/" + contestName + problemCode + "/output" + str(i) + ".txt", "w")
+            Ofile.write(outputText)
 
 
-
-contestName = input("contest number: ")
+try:
+    os.mkdir("./" + contestName)
+except:
+    print("Folder already exists")
 
 problemListsURL = problemsURLs(contestName) 
 template= open("./template.cpp", "r").read()

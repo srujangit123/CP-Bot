@@ -1,5 +1,6 @@
 # CP-Bot
 Tool for competitive programmers to avoid copy pasting things like templates, input, output etc.
+Currently works only for codeforces contests.
 
 ## How to install 
 * See requirements.txt

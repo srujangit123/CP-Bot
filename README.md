@@ -37,3 +37,4 @@ PWD(Present working directory)
 ```
 * If you want to write solution to problem A go to 1366A/sol.cpp and then write.
 * To check all testcases for a problem(say A) run ``./check.sh A``. This will show all the inputs, corresponding expected output and your output.
+* Solutionsdownloader link -> https://github.com/srujangit123/Web-crawler-Codeforces
